@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import { StyleSheet, TextInput, View, Image, TouchableOpacity, Text, ScrollView} from 'react-native';
 import Firebase from '../../database/firebaseConfig';
-//TODO
-
-//SALVAR IMAGEM
+//TODO! SALVAR IMAGEM
 export default function AddProductScreen(){
     const [name, setName] = useState(null)
     const [type, setType] = useState(null)
@@ -13,19 +11,20 @@ export default function AddProductScreen(){
     const [userEmail, setUserEmail]=useState('');
 
     //GET NEW IMAGE FROM LIBRARY
-    const getLibrary
+   // const getLibrary
     //GET NEW IMAGE FROM CAMERA
 
-    //CREATE PRODUCT FUNCIONT
+    //Função para criar um novo produto na tabela de produtos passando os dados dos inputs
     async function createProduct(){
             const user = Firebase.auth().currentUser;
               if (user !== null) {
                 const email = user.email;
                 setUserEmail(email);
-                console.log(userEmail);
               }
               if(userEmail !== ''){
-                let response = await fetch('http://192.168.0.162:5555/createProduct',{
+                  //TODO mudar o ip para o seu localhost no momento de desenvolvimento e depois mudar para o ip do servidor
+                let response = await fetch('http://192.168.1.101:5555/createProduct',{ //uso de fetch para enviar
+                //e receber os dados do banco de dados
                     method: 'POST',
                     headers: {
                       Accept: 'application/json',

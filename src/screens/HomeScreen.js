@@ -34,11 +34,7 @@ export default function HomeScreen({navigation}){
                 dotColor="#FFEE58"
                 onCurrentImagePressed={()=>navigation.navigate('ViewProductsScreen')}
              />
-         </View>
-         <TouchableOpacity style={styles.add} onPress={()=>navigation.navigate('TestScreen')}>
-            <Text>Foto</Text>
-           </TouchableOpacity> 
-         
+         </View>         
            <TouchableOpacity style={styles.add} onPress={()=>navigation.navigate('AddProductScreen')}>
            <AntDesign 
                 name="pluscircle" 

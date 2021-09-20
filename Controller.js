@@ -47,6 +47,7 @@ app.get('/listAllProducts/:producer', async(req,res)=>{
     }
 })
 
+
 //---------- PRODUCER ----------
 
 //create new producer

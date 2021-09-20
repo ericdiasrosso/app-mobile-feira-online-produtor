@@ -11,10 +11,9 @@ export default function ViewProductsScreen(){
             if (user !== null) {
               const email = user.email;
               setUserEmail(email);
-              console.log(userEmail);
             }
             if(userEmail!==''){
-              const response = await fetch(`http://192.168.0.162:5555/listAllProducts/${userEmail}`);
+              const response = await fetch(`http://192.168.1.101:5555/listAllProducts/${userEmail}`);
               const jsonData = await response.json();
               setProducts(jsonData);
               console.log(products);

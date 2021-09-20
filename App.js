@@ -14,7 +14,6 @@ import EditProfileScreen from './src/screens/profile/EditProfileScreen';
 import ViewProfileScreen from './src/screens/profile/ViewProfileScreen';
 import UpdatePasswordScreen from  './src/screens/profile/UpdatePasswordScreen';
 import DeleteProfileScreen from './src/screens/profile/DeleteProfileScreen';
-import TestScreen from './src/screens/TestScreen';
 
 const Stack = createStackNavigator();
 
@@ -40,7 +39,11 @@ export default function App (){
           options={{
             cardStyle: {
               backgroundColor: 'white'
-            },}}/>
+            },
+              title:"Cadastro",
+              headerTitleAlign:'center',
+              headerTintColor:'green'
+            }}/>
           <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen}
               options={{
                 cardStyle: {
@@ -110,15 +113,6 @@ export default function App (){
                 backgroundColor: 'white'
               },
               title:"Deletar Conta",
-              headerTitleAlign:'center',
-              headerTintColor:'green'
-              }} /> 
-         <Stack.Screen name="TestScreen" component={TestScreen} 
-            options={{
-              cardStyle: {
-                backgroundColor: 'white'
-              },
-              title:"Teste",
               headerTitleAlign:'center',
               headerTintColor:'green'
               }} /> 

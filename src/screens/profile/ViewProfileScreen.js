@@ -32,9 +32,8 @@ export default function ViewProfileScreen({navigation}){
               const email = user.email;
               setUserEmail(email);
             }
-          console.log(userEmail);
           if(userEmail!==''){
-            const response = await fetch(`http://192.168.0.162:5555/profile/${userEmail}`);
+            const response = await fetch(`http://192.168.1.101:5555/profile/${userEmail}`);
             const jsonData = await response.json();
             setProfile(jsonData);
           }
