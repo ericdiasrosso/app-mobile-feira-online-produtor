@@ -1,5 +1,9 @@
 import firebase from "firebase";
-import Config from "react-native-config";
+
+import getEnvVars from "../../environment";
+
+const Config = getEnvVars();
+
 require("firebase/auth");
 
 // Optionally import the services that you want to use
@@ -11,16 +15,14 @@ require("firebase/auth");
 // Initialize Firebase
 
 const firebaseConfig = {
-  apiKey: Config.API_KEY,
-  authDomain: Config.AUTH_DOMAIN,
-  projectId: Config.PROJECT_ID,
-  storageBucket: Config.STORAGE_BUCKET,
-  messagingSenderId: Config.MESSAGING_SENDER_ID,
-  appId: Config.APP_ID,
-  measurementId: Config.MEASUREMENT_ID,
+  apiKey: Config.apiKey,
+  authDomain: Config.authDomain,
+  projectId: Config.projectId,
+  storageBucket: Config.storageBucket,
+  messagingSenderId: Config.messagingSenderId,
+  appId: Config.appId,
+  measurementId: Config.measurementId
 };
-
-console.log(firebaseConfig);
 
 const Firebase = firebase.initializeApp(firebaseConfig);
 

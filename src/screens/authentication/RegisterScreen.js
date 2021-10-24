@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Config from "react-native-config";
+
+import getEnvVars from "../../../environment";
 
 import {
   StyleSheet,
@@ -8,11 +9,12 @@ import {
   ScrollView,
   TouchableOpacity,
   Text,
-  View,
+  View
 } from "react-native";
 import Firebase from "../../database/firebaseConfig";
 
 export default function Cadastro({ navigation }) {
+  const Config = getEnvVars();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -47,19 +49,19 @@ export default function Cadastro({ navigation }) {
 
   //CREATION OF THE USER IN POSTGRESQL DATABASE
   async function createProducer() {
-    let response = await fetch(`${Config.API_URL}/createProducer`, {
+    let response = await fetch(`${Config.apiUrl}/createProducer`, {
       method: "POST",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         producer_name: name,
         producer_email: email,
         producer_cpf: cpf,
         producer_phone: "Telefone não registrado",
-        producer_address: "Endereço não registrado",
-      }),
+        producer_address: "Endereço não registrado"
+      })
     });
     let json = await response.json();
     if (json === null) {
@@ -132,11 +134,11 @@ export default function Cadastro({ navigation }) {
 const styles = StyleSheet.create({
   info: {
     marginTop: 20,
-    alignSelf: "center",
+    alignSelf: "center"
   },
   label: {
     marginTop: 30,
-    marginLeft: 30,
+    marginLeft: 30
   },
   input: {
     width: 300,
@@ -144,14 +146,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "white",
     borderBottomColor: "green",
-    marginLeft: 30,
+    marginLeft: 30
   },
   checkboxContainer: {
     flexDirection: "row",
-    marginBottom: 20,
+    marginBottom: 20
   },
   checkbox: {
-    marginLeft: 20,
+    marginLeft: 20
   },
   register: {
     width: 300,
@@ -162,11 +164,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "green",
     alignItems: "center",
-    marginVertical: 7,
+    marginVertical: 7
   },
   registerText: {
     color: "white",
     alignSelf: "center",
-    fontSize: 20,
-  },
+    fontSize: 20
+  }
 });

@@ -6,13 +6,15 @@ import {
   Image,
   TouchableOpacity,
   Text,
-  ScrollView,
+  ScrollView
 } from "react-native";
-import Config from "react-native-config";
+import getEnvVars from "../../../environment";
+
 import Firebase from "../../database/firebaseConfig";
 
 //TODO! SALVAR IMAGEM
 export default function AddProductScreen() {
+  const Config = getEnvVars();
   const [name, setName] = useState(null);
   const [type, setType] = useState(null);
   const [description, setDescription] = useState(null);
@@ -32,7 +34,7 @@ export default function AddProductScreen() {
       setUserEmail(email);
     }
     if (userEmail !== "") {
-      console.log("111", `${Config.API_URL}/createProduct`);
+      console.log("111", `${Config.apiUrl}/createProduct`);
       //TODO mudar o ip para o seu localhost no momento de desenvolvimento e depois mudar para o ip do servidor
       let response = await fetch(`${Config.API_URL}/createProduct`, {
         //uso de fetch para enviar
@@ -40,7 +42,7 @@ export default function AddProductScreen() {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           product_name: name,
@@ -48,8 +50,8 @@ export default function AddProductScreen() {
           product_description: description,
           product_price: price,
           product_stock: stock,
-          product_producer: userEmail,
-        }),
+          product_producer: userEmail
+        })
       });
       let json = await response.json();
       if (json === null) {
@@ -74,7 +76,7 @@ export default function AddProductScreen() {
             flex: 1,
             backgroundColor: "white",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "center"
           }}
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -93,7 +95,7 @@ export default function AddProductScreen() {
           flex: 1,
           backgroundColor: "white",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "center"
         }}
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -123,7 +125,7 @@ export default function AddProductScreen() {
           flex: 1,
           backgroundColor: "white",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "center"
         }}
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -156,13 +158,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
     textAlign: "center",
     width: 300,
-    alignSelf: "center",
+    alignSelf: "center"
   },
   placeholder: {
     width: 200,
     height: 200,
     alignSelf: "center",
-    margin: 10,
+    margin: 10
   },
   botao: {
     padding: 13,
@@ -173,26 +175,26 @@ const styles = StyleSheet.create({
     marginEnd: 5,
     borderWidth: 1,
     borderColor: "green",
-    width: 100,
+    width: 100
   },
   botaoText: {
-    color: "green",
+    color: "green"
   },
   label: {
     marginTop: 30,
-    marginLeft: 29,
+    marginLeft: 29
   },
   labelTipo: {
     marginTop: 30,
-    marginRight: 40,
+    marginRight: 40
   },
   labelPreco: {
     marginTop: 30,
-    marginRight: 20,
+    marginRight: 20
   },
   labelEstoque: {
     marginTop: 30,
-    marginLeft: 20,
+    marginLeft: 20
   },
   input: {
     width: 300,
@@ -201,7 +203,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "white",
     borderBottomColor: "green",
-    textAlignVertical: "bottom",
+    textAlignVertical: "bottom"
   },
   inputTipo: {
     width: 140,
@@ -210,7 +212,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "white",
     borderBottomColor: "green",
-    textAlignVertical: "bottom",
+    textAlignVertical: "bottom"
   },
   inputPreco: {
     width: 60,
@@ -220,7 +222,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderBottomColor: "green",
     textAlignVertical: "bottom",
-    marginRight: 20,
+    marginRight: 20
   },
   inputEstoque: {
     width: 50,
@@ -230,7 +232,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderBottomColor: "green",
     textAlignVertical: "bottom",
-    marginLeft: 20,
+    marginLeft: 20
   },
   inputDesc: {
     width: 300,
@@ -239,7 +241,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "white",
     textAlignVertical: "top",
-    borderBottomColor: "green",
+    borderBottomColor: "green"
   },
   add: {
     width: 300,
@@ -250,13 +252,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "green",
     alignItems: "center",
-    marginVertical: 7,
+    marginVertical: 7
   },
   addText: {
     fontSize: 17,
     fontWeight: "bold",
-    color: "white",
-  },
+    color: "white"
+  }
 });
 
 /*

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Config from "react-native-config";
 
 import { StyleSheet, View, FlatList, Text } from "react-native";
 import Firebase from "../../database/firebaseConfig";
 
+import getEnvVars from "../../../environment";
+
 export default function ViewProductsScreen() {
   const [products, setProducts] = useState([]);
   const [userEmail, setUserEmail] = useState("");
+  const Config = getEnvVars();
 
   const getProducts = async () => {
     try {
@@ -16,7 +18,7 @@ export default function ViewProductsScreen() {
         setUserEmail(email);
       }
       if (userEmail !== "") {
-        const response = await fetch(`${Config.API_URL}/${userEmail}`);
+        const response = await fetch(`${Config.apiUrl}/${userEmail}`);
         const jsonData = await response.json();
 
         setProducts(jsonData);
@@ -76,30 +78,30 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "grey",
     width: 300,
-    marginTop: 10,
+    marginTop: 10
   },
   row: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: "row"
   },
   column: {
     flex: 1,
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "center"
   },
   boxFoto: {
     width: 300,
     height: 150,
     borderWidth: 1,
     borderBottomColor: "grey",
-    borderColor: "white",
+    borderColor: "white"
   },
   box1: {
     width: 200,
     height: 50,
     borderWidth: 1,
     borderBottomColor: "grey",
-    borderColor: "white",
+    borderColor: "white"
   },
   box2: {
     width: 100,
@@ -107,14 +109,14 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     borderWidth: 1,
     borderBottomColor: "grey",
-    borderColor: "white",
+    borderColor: "white"
   },
   box3: {
     width: 200,
     height: 100,
     borderWidth: 1,
     borderBottomColor: "grey",
-    borderColor: "white",
+    borderColor: "white"
   },
   box4: {
     width: 100,
@@ -122,16 +124,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     borderWidth: 1,
     borderBottomColor: "grey",
-    borderColor: "white",
+    borderColor: "white"
   },
 
   name: {
     fontSize: 16,
-    marginLeft: 5,
+    marginLeft: 5
   },
   desc: {
     marginLeft: 5,
-    marginTop: 10,
+    marginTop: 10
   },
   estoqueBox: {
     backgroundColor: "lightgrey",
@@ -139,20 +141,20 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: 30,
     marginRight: 10,
-    marginTop: 10,
+    marginTop: 10
   },
   estoque: {
     fontSize: 10,
-    alignSelf: "center",
+    alignSelf: "center"
   },
   tipo: {
     color: "grey",
     textAlign: "right",
-    marginRight: 20,
+    marginRight: 20
   },
   preco: {
     color: "green",
     textAlign: "right",
-    marginRight: 10,
-  },
+    marginRight: 10
+  }
 });

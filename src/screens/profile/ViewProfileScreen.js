@@ -6,11 +6,13 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
-  ActivityIndicator,
+  ActivityIndicator
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import Firebase from "../../database/firebaseConfig";
-import Config from "react-native-config";
+import getEnvVars from "../../../environment";
+
+const Config = getEnvVars();
 
 export default function ViewProfileScreen({ navigation }) {
   const [userEmail, setUserEmail] = useState("");
@@ -26,7 +28,7 @@ export default function ViewProfileScreen({ navigation }) {
         >
           <AntDesign name='edit' size={30} color='green' />
         </TouchableOpacity>
-      ),
+      )
     });
   });
 
@@ -45,7 +47,7 @@ export default function ViewProfileScreen({ navigation }) {
         setUserEmail(email);
       }
       if (userEmail !== "") {
-        const response = await fetch(`${Config.API_URL}/${userEmail}`);
+        const response = await fetch(`${Config.apiUrl}/${userEmail}`);
         const jsonData = await response.json();
         setProfile(jsonData);
       }
@@ -133,76 +135,76 @@ export default function ViewProfileScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: "row"
   },
   photo: {
     width: 75,
     height: 75,
-    flex: 2,
+    flex: 2
   },
   name: {
     width: 75,
     height: 75,
-    flex: 3,
+    flex: 3
   },
   box1: {
     width: 75,
     height: 50,
     flex: 2,
-    marginTop: 10,
+    marginTop: 10
   },
   box2: {
     width: 75,
     height: 50,
     flex: 4,
-    marginTop: 10,
+    marginTop: 10
   },
   textStyle: {
     color: "black",
     marginLeft: 5,
-    marginVertical: 10,
+    marginVertical: 10
   },
   label: {
     color: "grey",
     marginVertical: 10,
-    marginLeft: 10,
+    marginLeft: 10
   },
   forgotPassword: {
     marginTop: 40,
     alignContent: "center",
-    marginLeft: 10,
+    marginLeft: 10
   },
   forgotPasswordText: {
     fontSize: 14,
     textDecorationLine: "underline",
-    color: "green",
+    color: "green"
   },
   logout: {
     marginTop: 50,
     alignContent: "center",
-    marginLeft: 10,
+    marginLeft: 10
   },
   logoutText: {
     fontSize: 13,
-    color: "red",
+    color: "red"
   },
   deleteContainer: {
     flexDirection: "row",
     marginTop: 30,
-    marginLeft: 10,
+    marginLeft: 10
   },
   deleteText: {
     fontSize: 14,
     color: "red",
-    textAlign: "right",
+    textAlign: "right"
   },
   containerIndicator: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "center"
   },
   horizontal: {
     flexDirection: "row",
     justifyContent: "space-around",
-    padding: 10,
-  },
+    padding: 10
+  }
 });
