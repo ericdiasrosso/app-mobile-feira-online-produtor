@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1059761653096",
+    "project_id": "feiraonline2021-d3cff",
+    "storage_bucket": "feiraonline2021-d3cff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059761653096:android:64c3f0786c052b65e542dd",
+        "android_client_info": {
+          "package_name": "com.feiraonline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059761653096-j1vpvvlhee4fb69isido9nievj9ihh12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbrMyLxKMvLPGgbmIQxGBOL8K-BaFfk7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059761653096-j1vpvvlhee4fb69isido9nievj9ihh12.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
